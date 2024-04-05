@@ -1,3 +1,4 @@
+
 const path = require('path');
 const core = require('@actions/core');
 const aws = require('aws-sdk');
@@ -26,6 +27,7 @@ async function updateEcsService(ecs, clusterName, service, taskDefArn, waitForSe
   let params = {
     cluster: clusterName,
     service: service,
+    enableExecuteCommand: true,
     taskDefinition: taskDefArn,
     forceNewDeployment: forceNewDeployment
   };
